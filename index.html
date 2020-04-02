@@ -18,6 +18,8 @@
     <!-- able player css -->
     <link rel="stylesheet" href="ableplayer/build/ableplayer.min.css" type="text/css"/>
 
+    <link href="https://fonts.googleapis.com/css?family=Unica+One&display=swap" rel="stylesheet">    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 
     <title>A/V Accessibility Project</title>
@@ -25,43 +27,45 @@
 <body>
 
     <main id="app">
-        <div>
-            <h2>Multimedia for everyone</h2>
+        <header>
+            <h2>Select video or audio!</h2>
 
             <!-- <router-link to="/">Movies</router-link>
             <router-link to="/music">Music</router-link> -->
-        </div>
+        </header>
         
         <!-- <router-view></router-view> -->
 
         <div id="posters">
-            <a href="#" @click.prevent="loadAudio">
-                <img src="images/believer.jpg" alt="believer">
-            </a>
             <a href="#" @click.prevent="loadMovie">
                 <img  src="images/titanic.jpg" alt="titanic">
             </a>
+            <a href="#" @click.prevent="loadAudio">
+                <img src="images/believer.jpg" alt="believer">
+            </a>
         </div>
 
-        <div class="audio-lb">
+        <div id="video-lb" :class="{ hidden: noVideo }">
+            <button @click.prevent="close">x</button>
+            <video id="video1" data-able-player preload="auto" width="480" height="360" data-skin="2020" poster="images/titanic.jpg">
+                <source type="video/webm" src="assets/titanic.webm" data-desc-src="assets/titanic.webm"/>
+                <source type="video/mp4" src="assets/titanic.mp4" data-desc-src="assets/titanic.mp4"/>
+                <track kind="captions" src="assets/titanic-caption.vtt" srclang="en" label="English"/>
+                <track kind="descriptions" src="assets/titanic-description.vtt"/>
+            </video>
+        </div>
+
+        <div id="audio-lb" :class="{ hidden: noAudio }" >
+            <button @click.prevent="close">x</button>
             <audio id="audio1" data-able-player preload="auto" class="hidden">
                 <source type="audio/ogg" src="assets/believer.ogg"/>
                 <source type="audio/mp3" src="assets/believer.mp3"/>
             </audio>
         </div>
 
-        <div class="video-lb">
-            <video id="video1" data-able-player preload="auto" width="480" height="360" data-skin="2020" poster="images/titanic.jpg">
-                <source type="video/webm" src="assets/titanic.webm" data-desc-src="assets/titanic.webm"/>
-                <source type="video/mp4" src="assets/titanic.mp4" data-desc-src="assets/titanic.mp4"/>
-                <track kind="captions" src="assets/titanic-caption.vtt" srclang="en" label="English"/>
-                <track kind="descriptions" src="assets/titanic-caption.vtt"/>
-            </video>
-        </div>
-
     </main>
         
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
     <script src="js/main.js" type="module"></script>
     
     <!-- <script src="js/main.js" type="module"></script> -->

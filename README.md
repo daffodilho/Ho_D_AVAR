@@ -5,7 +5,7 @@ Researching best practices for playing media (audio and video) on the web.  I us
 ## Installing
 Cd to the directory of your choice and clone the repo
   ``` 
-  git clone https://github.com/daffodilho/Ho_D_ChatApp.git
+  git clone https://github.com/daffodilho/Ho_D_AccessibilityResearch.git
   ```
 
 ## Tools Used

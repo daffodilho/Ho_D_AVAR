@@ -1,7 +1,3 @@
-import MovieComponent from "./modules/MovieComponent.js"
-import MusicComponent from "./modules/MusicComponent.js"
-import ErrorComponent from "./modules/ErrorComponent.js"
-
 // const routes = [
 //     { path: '/', name: 'movies', component: MovieComponent },
 //     { path: '/music', name: 'music', component: MusicComponent },
@@ -28,6 +24,11 @@ const vm = new Vue({
             this.noVideo = false;
             this.noAudio = true;
         },
+
+        close(){
+            this.noAudio = true;
+            this.noVideo = true;
+        }
     },
 
     

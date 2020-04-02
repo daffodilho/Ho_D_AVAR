@@ -1,27 +1,34 @@
-Vue.component('poster', {
-    props: {
-        thumbnail: String,
-        source: String
+import MovieComponent from "./modules/MovieComponent.js"
+import MusicComponent from "./modules/MusicComponent.js"
+import ErrorComponent from "./modules/ErrorComponent.js"
+
+// const routes = [
+//     { path: '/', name: 'movies', component: MovieComponent },
+//     { path: '/music', name: 'music', component: MusicComponent },
+//     { path: '*', name: 'error', component: ErrorComponent }
+// ]
+
+// const router = new VueRouter({
+//     routes // short for routes: routes
+// })
+
+const vm = new Vue({
+    data: {
+        noAudio: true,
+        noVideo: true
     },
 
-    template: `
-    <li>
-        <a href="#" @click.prevent="load-asset">
-            <img :src="'../images/' + thumbnail" alt="movie poster">
-        </a>
-    </li>
-    `
-})
+    methods: {
+        loadAudio(){
+            this.noAudio = false;
+            this.noVideo = true;
+        },
 
-var vm = new Vue({
-    el: "#app",
+        loadMovie(){
+            this.noVideo = false;
+            this.noAudio = true;
+        },
+    },
 
-    data: {
-        assets: [
-            {name: "101 Dalmations", thumbnail: "1960_dalmation.jpg", source: "../assets/101.mp4"},
-            {name: "Close to you", thumbnail: "1970_closetoyou.jpg", source: "../assets/closetoyou.mp3"}
-        ],
-
-        hidePlayer: false
-    }
-})
+    
+}).$mount("#app");
